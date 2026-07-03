@@ -1,0 +1,21 @@
+<header>
+  <h1>Angular funciona</h1>
+
+  <nav>
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+      Inicio
+    </a>
+
+    <a routerLink="/conferencias" routerLinkActive="activo">
+      Conferencias
+    </a>
+
+    <a routerLink="/asistentes" routerLinkActive="activo">
+      Asistentes
+    </a>
+  </nav>
+
+  <hr>
+</header>
+
+<router-outlet></router-outlet>

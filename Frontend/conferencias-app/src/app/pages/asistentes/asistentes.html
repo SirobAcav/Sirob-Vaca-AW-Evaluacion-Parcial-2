@@ -1,0 +1,71 @@
+<h2>Gestión de Asistentes</h2>
+
+<form>
+
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="asistente.nombre" name="nombre">
+
+    <label>Apellido</label>
+    <input type="text" [(ngModel)]="asistente.apellido" name="apellido">
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="asistente.email" name="email">
+
+    <label>Teléfono</label>
+    <input type="text" [(ngModel)]="asistente.telefono" name="telefono">
+
+    <!-- 🔥 NUEVO CAMPO -->
+    <label>Conferencia</label>
+    <select [(ngModel)]="asistente.conferencia_id" name="conferencia_id">
+
+        <option [ngValue]="0">Seleccione una conferencia</option>
+
+        <option *ngFor="let c of conferencias"
+                [ngValue]="c.conferencia_id">
+            {{c.nombre}}
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="button" (click)="guardar()">Guardar</button>
+    <button type="button" (click)="modificar()">Modificar</button>
+    <button type="button" (click)="eliminar()">Eliminar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+
+</form>
+
+<br>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Conferencia</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let a of asistentes"
+            (click)="seleccionar(a)"
+            style="cursor:pointer">
+
+            <td>{{a.asistente_id}}</td>
+            <td>{{a.nombre}}</td>
+            <td>{{a.apellido}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.telefono}}</td>
+            <td>{{a.conferencia?.nombre}}</td>
+
+        </tr>
+
+    </tbody>
+
+</table>

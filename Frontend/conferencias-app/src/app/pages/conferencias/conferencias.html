@@ -1,0 +1,56 @@
+<h2>Gestión de Conferencias</h2>
+
+<form>
+
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="conferencia.nombre" name="nombre">
+
+    <label>Fecha</label>
+    <input type="date" [(ngModel)]="conferencia.fecha" name="fecha">
+
+    <label>Ubicación</label>
+    <input type="text" [(ngModel)]="conferencia.ubicacion" name="ubicacion">
+
+    <label>Descripción</label>
+    <textarea rows="4" [(ngModel)]="conferencia.descripcion" name="descripcion"></textarea>
+
+    <br><br>
+
+    <button type="button" (click)="guardar()">Guardar</button>
+    <button type="button" (click)="modificar()">Modificar</button>
+    <button type="button" (click)="eliminar()">Eliminar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+
+</form>
+
+<br>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Ubicación</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let c of conferencias"
+            (click)="seleccionar(c)"
+            style="cursor:pointer">
+
+            <td>{{c.conferencia_id}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.fecha}}</td>
+            <td>{{c.ubicacion}}</td>
+            <td>{{c.descripcion}}</td>
+
+        </tr>
+
+    </tbody>
+
+</table>
